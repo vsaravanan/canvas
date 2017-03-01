@@ -1,5 +1,8 @@
 var img = new Image();
-img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+img.src = 'rhino.png';
+//img.crossOrigin='anonymous';
+//img.setAttribute('crossOrigin', '');
+
 img.onload = function() {
   draw(this);
 };
@@ -8,6 +11,7 @@ function draw(img) {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   ctx.drawImage(img, 0, 0);
+  
   img.style.display = 'none';
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var data = imageData.data;
